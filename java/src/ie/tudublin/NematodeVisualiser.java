@@ -9,11 +9,17 @@ import processing.data.TableRow;
 public class NematodeVisualiser extends PApplet
 {
 
+	int Choice = 0;
+
 	public void keyPressed()
 	{		
-		if (keyCode == LEFT)
-		{
-		}		
+		if (keyCode == LEFT){
+			Choice--;
+		}
+		
+		if (keyCode == RIGHT){
+			Choice++;
+		}
 	}
 
 
