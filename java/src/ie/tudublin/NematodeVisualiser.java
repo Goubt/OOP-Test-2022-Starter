@@ -1,6 +1,8 @@
 package ie.tudublin;
 
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import processing.core.PApplet;
 import processing.data.Table;
@@ -10,6 +12,7 @@ public class NematodeVisualiser extends PApplet
 {
 
 	int Choice = 0;
+	int Ammount = 13;
 
 	public void keyPressed()
 	{		
@@ -32,16 +35,32 @@ public class NematodeVisualiser extends PApplet
 	{
 		colorMode(HSB);
 		background(0);
-		smooth();				
+		smooth();	
+		loadNematodes();
 	}
 	
 
+	ArrayList<Nematode> NematodeArray = new ArrayList<Nematode>();
+
 	public void loadNematodes()
 	{
+		
+		Table table = loadTable("data/nematodes.csv", "header");
+		for(TableRow row :table.rows()){
+			Nematode nema = new Nematode(row);
+			NematodeArray.add(nema);
+		}
 	}
 
+	
+	int grow;
 
 	public void draw()
 	{	
+		textSize(50);
+		textAlign(CENTER);
+		text("Bryan", 400, 50);
+		
 	}
 }
+
